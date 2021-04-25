@@ -78,7 +78,7 @@ mod1, *stop1 = model_form()
 h = mod1.fit(
     listpad,
     Forigins_train,
-    epochs=5,
+    epochs=50,
     validation_split=0.2,
     callbacks=[stop1],
     verbose=2,
