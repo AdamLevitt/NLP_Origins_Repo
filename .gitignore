@@ -2,3 +2,5 @@
 __pycache__
 project_env
 data
+accuracy.md
+model.h5
