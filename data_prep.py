@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 
 import encode_func
 
-# Combine & Define Data sets
+# Combine and define data sets
 together = glob2.glob("data/names/*.txt")
 data = []
 
@@ -23,7 +23,7 @@ names_train, names_test, origins_train, origins_test = train_test_split(
     names, origins, test_size=0.25, shuffle=True, random_state=123
 )
 
-# Filter Out 'to The First Page' From Data sets
+# Filter out 'to The First Page' from data sets
 length = len(names_train)
 names_traina = []
 origins_traina = []
@@ -45,14 +45,14 @@ for indext in range(tlength):
         origins_testa.append(origins_test[indext])
 
 
-# Convert to Numpy Arrays
+# Convert to numpy arrays
 Nnames_train = np.array(names_traina)
 Norigins_train = np.array(origins_traina)
 
 Nnames_test = np.array(names_testa)
 Norigins_test = np.array(origins_testa)
 
-# Find the Number of Unique Label Values (Origins)
+# Find the number of unique label values (origins)
 a = np.unique(Norigins_test)
 b = np.unique(Norigins_train)
 
@@ -60,7 +60,7 @@ b = np.unique(Norigins_train)
 Torigins_test = encode_func.int_encode(Norigins_test)
 Torigins_train = encode_func.int_encode(Norigins_train)
 
-# Create a Dictionary from Integer Values Back to Origin 'Text' Label
+# Create a dictionary from integer values back to origin 'Text' label
 dicti = {}
 
 for count in range(len(Torigins_train)):
@@ -72,26 +72,26 @@ Forigins_test = to_categorical(Torigins_test)
 Forigins_train = to_categorical(Torigins_train)
 
 
-# Fit Tokenizer to Names at a Character Level
+# Fit tokenizer to names at a character level
 tokenizer = keras.preprocessing.text.Tokenizer(char_level=True, lower=True)
 tokenizer.fit_on_texts(Nnames_train)
 tokenizer.fit_on_texts(Nnames_test)
 
-# Number of Characters
+# Number of characters
 char = tokenizer.word_index
 char_length = len(char)
 
-# Convert Names to Token Values
+# Convert names to token values
 token = tokenizer.texts_to_sequences(Nnames_train)
 token_test = tokenizer.texts_to_sequences(Nnames_test)
 
-# Find the Max Word Length
+# Find the max word length
 WordmaxTR = max([len(temp) for temp in token])
 WordmaxTE = max([len(temp) for temp in token_test])
 
 Wordmax = max(WordmaxTE, WordmaxTR)
 
-# Pad Tokenized Words
+# Pad tokenized words
 listpad = tf.keras.preprocessing.sequence.pad_sequences(
     token, maxlen=Wordmax, padding="pre"
 )
