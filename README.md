@@ -1,4 +1,4 @@
-# NLP - RNN for Name Origins Analysis
+# NLP - RNN for Name Origins Prediction
 
 ### Overview
 This repo analyzes the data set found at 'https://download.pytorch.org/tutorial/data.zip' and utlizes a simple ML NLP method to predict the orgins of various names. We use the Keras API to put forward a model that implements a character level embedding layer followed by a bidirectional LSTM layer and two Dense layers. 
