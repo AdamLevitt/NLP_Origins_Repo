@@ -49,3 +49,5 @@ def printout():
 
     print("\nMax Word length:")
     print(Wordmax)
+
+printout()
