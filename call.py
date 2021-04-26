@@ -25,5 +25,8 @@ if __name__ == "__main__":
         "/Users/lisatsakalian/Desktop/Coding_Projects/ML_Projects_Dev/NLP/model.h5"
     )
 
-    origin_pred = origin_name("anderson")
+    #name = input("Enter a family Name: ")
+    name = 'anderson'
+
+    origin_pred = origin_name(name)
     print(origin_pred)
