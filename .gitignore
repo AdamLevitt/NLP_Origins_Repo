@@ -4,3 +4,6 @@ project_env
 data
 accuracy.md
 model.h5
+keras_export
+saved_model_contents.txt
+saved_model_inspect.txt
