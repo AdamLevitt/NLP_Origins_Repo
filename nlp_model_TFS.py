@@ -139,11 +139,12 @@ with open("saved_model_contents.txt", "w") as f:
 p2 = subprocess.run(["ls", export_path], stdout=subprocess.PIPE, text=True, check=True)
 print(p2.stdout)
 
-# import subprocess
-# with open("saved_model_inspect.txt", "w") as g:
-#     p3 = subprocess.run(
-#         "python3 /Users/lisatsakalian/Desktop/Coding_Projects/ML_Projects_Dev/NLP/project_env/lib/python3.9/site-packages/tensorflow/python/tools/saved_model_cli.py  show --dir /Users/lisatsakalian/Desktop/Coding_Projects/ML_Projects_Dev/NLP/keras_export/1/saved_model.pb --all",
-#         shell=True,
-#         stdout=g,
-#         text=True,
-#     )
+import subprocess
+
+with open("saved_model_inspect.txt", "w") as g:
+    p3 = subprocess.run(
+        "python3 /Users/lisatsakalian/Desktop/Coding_Projects/ML_Projects_Dev/NLP/project_env/lib/python3.9/site-packages/tensorflow/python/tools/saved_model_cli.py  show --dir /Users/lisatsakalian/Desktop/Coding_Projects/ML_Projects_Dev/NLP/keras_export/1/ --all",
+        shell=True,
+        stdout=g,
+        text=True,
+    )
